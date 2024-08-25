@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-const API_URL = "http://localhost:5000/api/v1";
+const API_URL = "https://my-hostel-api.onrender.com/api/v1";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
