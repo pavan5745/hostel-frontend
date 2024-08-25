@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import hostelImg from "./../../dev-data/hostel-g.jpg";
 import logo from "./../../dev-data/1145.jpg";
 import "./LoginPage.css"; // Custom styles
-const API_URL = "http://localhost:5000/api/v1";
+const API_URL = "https://my-hostel-api.onrender.com/api/v1";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
