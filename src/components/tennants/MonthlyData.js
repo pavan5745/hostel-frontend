@@ -3,7 +3,7 @@ import axios from "axios";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 
-const API_URL = "http://localhost:5000/api/v1"; // Update with your actual API URL
+const API_URL = "https://my-hostel-api.onrender.com/api/v1"; // Update with your actual API URL
 const token = localStorage.getItem("jwt");
 
 const MonthlyData = () => {
