@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import AddRoom from "./AddRoom"; // Import the AddRoomModal component
 
-const API_URL = "http://localhost:5000/api/v1"; // Update with your actual API URL
+const API_URL = "https://my-hostel-api.onrender.com/api/v1"; // Update with your actual API URL
 const token = localStorage.getItem("jwt");
 
 const AllRooms = () => {
