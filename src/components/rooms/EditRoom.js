@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/v1"; // Update with your actual API URL
+const API_URL = "https://my-hostel-api.onrender.com/api/v1"; // Update with your actual API URL
 const token = localStorage.getItem("jwt");
 const EditRoom = () => {
   const { id } = useParams();
