@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/v1";
+const API_URL = "https://my-hostel-api.onrender.com/api/v1";
 const token = localStorage.getItem("jwt");
 const AddTennants = () => {
   const navigate = useNavigate();
