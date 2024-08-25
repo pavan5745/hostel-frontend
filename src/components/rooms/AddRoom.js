@@ -9,7 +9,7 @@ const AddRoom = ({ fetchRoomStats }) => {
   const handleAddRoom = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/api/v1/hostel/66adf998820d83f1797c0613/rooms",
+        "https://my-hostel-api.onrender.com/api/v1/hostel/66adf998820d83f1797c0613/rooms",
 
         {
           roomNumber,
