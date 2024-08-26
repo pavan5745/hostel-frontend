@@ -3,9 +3,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import hostelImg from "./../../dev-data/hostel-g.jpg";
 import logo from "./../../dev-data/1145.jpg";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "./LoginPage.css"; // Custom styles
 const API_URL = "https://my-hostel-api.onrender.com/api/v1";
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -14,12 +14,10 @@ const LoginPage = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Loader state
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Show loader
 
     try {
       const url = isSigningUp
@@ -41,8 +39,6 @@ const LoginPage = () => {
           ? "Failed to sign up. Try again."
           : "Incorrect email or password"
       );
-    } finally {
-      setLoading(false); // Hide loader after process completes
     }
   };
 
@@ -63,7 +59,7 @@ const LoginPage = () => {
         ></div>
       </div>
       <div className="form-container d-flex justify-content-center align-items-center">
-        <div className="card p-4 shadow-sm">
+        <div className="carditem p-4 shadow-sm">
           <div className="text-center mb-4">
             <h1 className="text-primary d-inline-block ml-2 align-middle">
               Aadi Mahalxmi Boys Hostel
@@ -71,75 +67,67 @@ const LoginPage = () => {
           </div>
           <h2 className="mb-4">{isSigningUp ? "Sign Up" : "Login"}</h2>
           {error && <div className="alert alert-danger">{error}</div>}
-          {loading ? (
-            <div className="text-center mb-4">
-              <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              {isSigningUp && (
-                <div className="mb-3">
-                  <label htmlFor="name" className="form-label">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                  />
-                </div>
-              )}
+          <form onSubmit={handleSubmit}>
+            {isSigningUp && (
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
-                  Email address
+                <label htmlFor="name" className="form-label">
+                  Name
                 </label>
                 <input
-                  type="email"
+                  type="text"
                   className="form-control"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </div>
+            )}
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            {isSigningUp && (
               <div className="mb-3">
-                <label htmlFor="password" className="form-label">
-                  Password
+                <label htmlFor="passwordConfirm" className="form-label">
+                  Confirm Password
                 </label>
                 <input
                   type="password"
                   className="form-control"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  id="passwordConfirm"
+                  value={passwordConfirm}
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
                   required
                 />
               </div>
-              {isSigningUp && (
-                <div className="mb-3">
-                  <label htmlFor="passwordConfirm" className="form-label">
-                    Confirm Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="passwordConfirm"
-                    value={passwordConfirm}
-                    onChange={(e) => setPasswordConfirm(e.target.value)}
-                    required
-                  />
-                </div>
-              )}
-              <button type="submit" className="btn btn-primary w-100">
-                {isSigningUp ? "Sign Up" : "Login"}
-              </button>
-            </form>
-          )}
+            )}
+            <button type="submit" className="btn btn-primary w-100">
+              {isSigningUp ? "Sign Up" : "Login"}
+            </button>
+          </form>
           <div className="text-center mt-3">
             <a href="/forgot-password">Forgot your password?</a>
             <br />
@@ -159,4 +147,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
